@@ -56,5 +56,5 @@ Our project includes an interactive web application built with Streamlit. You ca
 
 **Access the App**: [Streamlit App](http://localhost:8502)
 
-![Streamlit App Screenshot](![image](https://github.com/Ozodiy/Diabets-prediction/assets/140936943/3cdda8dd-fab9-4316-8915-081e4ba60866)
+
 )
