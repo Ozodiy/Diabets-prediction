@@ -55,6 +55,3 @@ Several machine learning models were experimented with, including Logistic Regre
 Our project includes an interactive web application built with Streamlit. You can visualize data, interact with the analysis, and input data for predictions.
 
 **Access the App**: [Streamlit App](http://localhost:8502)
-
-
-)
