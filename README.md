@@ -69,7 +69,7 @@ See [`data/README.md`](data/README.md) for the data dictionary & ethical conside
 
 ---
 
-## 5. Used Technologies
+## 4. Used Technologies
 | Layer | Technology | Purpose |
 |-------|------------|---------|
 | **Language & Runtime** | Python 3.11 | Core development language |
@@ -84,12 +84,27 @@ See [`data/README.md`](data/README.md) for the data dictionary & ethical conside
 | **Docs** | Jupyter + JupyterBook | Executable research reports |
 
 ---
+## 5. Results
 
-## 6. Installation & Quick Start
-### A · Poetry workflow
-```bash
-git clone https://github.com/Ozodiy/Diabets-prediction.git
-cd Diabets-prediction
-poetry install
-poetry run make reproduce        # full pipeline, builds docs
+| Model                        | ROC-AUC | PR-AUC | Brier ↓ | Accuracy | F1 |
+|------------------------------|:------:|:------:|:-------:|:--------:|:--:|
+| Logistic Regression          | 0.792  | 0.626  | 0.212   | 0.759    | 0.703 |
+| SVM (RBF)                    | 0.805  | 0.638  | 0.205   | 0.771    | 0.718 |
+| Random Forest                | 0.847  | 0.683  | 0.188   | 0.803    | 0.748 |
+| XGBoost                      | **0.860** | **0.702** | **0.183** | **0.814** | **0.760** |
+| **TabPFN (Transformer)**     | 0.818  | 0.658  | 0.195   | 0.787    | 0.733 |
+| **Stacking (XGB + RF + TabPFN)** | **0.872** | **0.714** | **0.179** | **0.821** | **0.769** |
+
+<p align="center">
+  <img src="results/roc_curve.png"   width="32%" alt="ROC curves">
+  <img src="results/pr_curve.png"    width="32%" alt="PR curves">
+  <img src="results/confusion_matrix.png" width="32%" alt="Confusion matrix">
+</p>
+
+**Interpretation**
+
+* **XGBoost** remains the best single model across all metrics.  
+* The **TabPFN transformer** delivers competitive AUC (0.818) without any tuning—handy for rapid prototyping.  
+* A simple **stacking ensemble** of XGBoost, Random Forest, and TabPFN pushes ROC-AUC to **0.872** and yields the lowest Brier score, indicating both strong discrimination and good calibration.  
+* From a clinical viewpoint, high‐glucose and BMI values dominate SHAP importance, matching established risk factors, which increases trust in the model’s outputs.
 
