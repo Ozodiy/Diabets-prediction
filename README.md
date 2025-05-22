@@ -18,22 +18,6 @@
 
 ---
 
-## Table of Contents
-1. [Executive Summary](#0-executive-summary)  
-2. [Problem Statement](#1-problem-statement)  
-3. [Data](#2-data)  
-4. [Methodology](#3-methodology)  
-5. [Repository Structure](#4-repository-structure)  
-6. [Installation & Quick Start](#5-installation--quick-start)  
-7. [Usage](#6-usage)  
-8. [Results](#7-results)  
-9. [Roadmap](#8-roadmap)  
-10. [Contributing](#9-contributing)  
-11. [License](#10-license)  
-12. [Citation](#11-how-to-cite)  
-13. [Acknowledgements](#12-acknowledgements)  
-
----
 
 ## 0. Executive Summary
 This project delivers a **production-ready, fully reproducible** machine-learning pipeline to predict diabetes onset in the Pima Indians cohort.  
@@ -83,5 +67,29 @@ See [`data/README.md`](data/README.md) for the data dictionary & ethical conside
 
 ---
 
-## 4. Repository Structure
+---
+
+## 5. Used Technologies
+| Layer | Technology | Purpose |
+|-------|------------|---------|
+| **Language & Runtime** | Python 3.11 | Core development language |
+| **Data & EDA** | pandas, numpy, seaborn, matplotlib, pandas-profiling | Loading, cleaning, visualisation |
+| **Classical ML** | scikit-learn ≥ 1.3.2 | Baseline models & utilities |
+| | XGBoost 2.x | Gradient-boosted trees |
+| | TPOT 1.0.0 | AutoML pipeline discovery |
+| **Deep & Transformer** | TabPFN | Zero-shot transformer for tabular data |
+| **Explainability** | SHAP | Global & local feature importance |
+| **Workflow Mgmt** | Poetry, Make, Docker Compose | Reproducible environments & automation |
+| **CI / CD** | GitHub Actions | Lint → unit-test → smoke-train |
+| **Docs** | Jupyter + JupyterBook | Executable research reports |
+
+---
+
+## 6. Installation & Quick Start
+### A · Poetry workflow
+```bash
+git clone https://github.com/Ozodiy/Diabets-prediction.git
+cd Diabets-prediction
+poetry install
+poetry run make reproduce        # full pipeline, builds docs
 
